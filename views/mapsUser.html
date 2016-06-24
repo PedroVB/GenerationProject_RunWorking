@@ -1,0 +1,29 @@
+<div ng-controller="mapsUserController">
+	<div class="col-md-2 colGeneral">
+		<div id="menu">
+			<div class="avatar">
+				<img class="redondo" src="../img/profile.jpg"/>
+			</div>
+			<ul>
+				<li><a href="/mapsUser" >Mis Rutas</a></li>
+				<li><a href="/uImages">Mis Imágenes</a></li>
+				<li><a href="...">Mis Videos</a></li>
+				<li class="last"><a href="/settings">Configuración</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-8 nopadding">
+		<!--el output contiene la distancia y km como si fuera un p-->
+		<div id="map"></div>
+
+	</div>
+	<div class="col-md-2">
+		<div id="output"></div>
+		<button type="button" id="closeRoute" class="btn btn-primary" onClick="closeRoute()">Cerrar Ruta</button>
+		<button type="button" id="saveRoute" class="btn btn-primary" onClick="saveRoute()">Guardar Ruta</button>
+		<div class="hideClass">
+		<span class="msgMaps">Dale un nombre a tú ruta: </span><input type="text" id="inputRoute" />
+			<button type="button" id="acceptRoute" class="btn btn-primary" onClick="acceptRoute()">Aceptar</button>
+		</div>
+	</div>
+</div>

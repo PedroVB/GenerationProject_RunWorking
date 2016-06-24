@@ -1,0 +1,34 @@
+<div ng-controller="settingsController">
+
+	<div class="col-md-2 colGeneral">
+		<div id="menu">
+			<div class="avatar">
+				<img class="redondo" src="../img/profile.jpg"/>
+			</div>
+			<ul>
+				<li><a href="/mapsUser" >Mis Rutas</a></li>
+				<li><a href="/uImages">Mis Imágenes</a></li>
+				<li><a href="...">Mis Videos</a></li>
+				<li class="last"><a href="/settings">Configuración</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-10">
+		<form id="updateForm">
+			<p>DNI: <label id="currentDNI"></label>
+			<!-- <input type="text" id="newDNI" disabled /></p> -->
+			<p>Nombre: <label id="currentName"></label></p>
+			<p>Nuevo nombre:<input type="text" id="newName" /></p>
+			<p>Mail: <label id="currentMail"></label></p>
+			<p>Nuevo mail:<input type="text" id="newMail" /></p>
+			<p>Password: <label id="currentPassword"></label></p>
+			<p>Nuevo password:<input type="text" id="newPassword" /></p>
+			<input type="button" id="sendChanges" value="Cambiar" onClick="updateUser_php()"/>
+		</form>
+
+		<p>
+			<input type="button" onClick="deleteUser_php()" value="Borrar Usuario" />
+		</p>
+	</div>
+
+</div>

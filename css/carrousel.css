@@ -1,0 +1,161 @@
+.ca-container{
+    position:relative;
+    margin:auto auto 20px auto;
+    width:1140px;
+    height:450px;
+    margin-top: -20px;
+}
+.ca-wrapper{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+.ca-item{
+    position:relative;
+    float:left;
+    width:380px;
+    height:100%;
+    text-align:center;
+}
+
+.ca-close{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#fff url(../img/cross.png) no-repeat center center;
+    width:27px;
+    height:27px;
+    text-indent:-9000px;
+    outline:none;
+    -moz-box-shadow:1px 1px 2px rgba(0,0,0,0.2);
+    -webkit-box-shadow:1px 1px 2px rgba(0,0,0,0.2);
+    box-shadow:1px 1px 2px rgba(0,0,0,0.2);
+    opacity:0.7;
+}
+.ca-close:hover{
+    opacity:1.0;
+}
+.ca-item-main{
+    position:absolute;
+    top:5px;
+    left:5px;
+    right:5px;
+    bottom:5px;
+    background:#fff;
+    overflow:hidden;
+    -moz-box-shadow:1px 1px 2px rgba(0, 120, 194, 0.2);
+    -webkit-box-shadow:1px 1px 2px rgba(0, 120, 194, 0.2);
+    box-shadow:1px 1px 2px rgba(0, 120, 194, 0.2);
+}
+.ca-icon{
+    width:233px;
+    height:250px;
+    position:relative;
+    margin:0 auto;
+    background:transparent url(../img/animal1.png) no-repeat center center;
+}
+.ca-item-2 .ca-icon{
+    background-image:url(../img/animal2.jpg);
+}
+.ca-item-3 .ca-icon{
+    background-image:url(../img/animal3.jpg);
+}
+.ca-item-4 .ca-icon{
+    background-image:url(../img/animal4.jpg);
+}
+.ca-item-5 .ca-icon{
+    background-image:url(../img/animal5.jpg);
+}
+.ca-item-6 .ca-icon{
+    background-image:url(../img/animal7.jpg);
+}
+.ca-item-7 .ca-icon{
+    background-image:url(../img/animal8.jpg);
+}
+
+.ca-item h3{
+    font-family: bodyFont;
+        padding-bottom: 15px;
+    text-transform:uppercase;
+    font-size:30px;
+    color:#000;
+    text-align:center;
+    text-shadow: 0px 1px 1px #e4ebe9;
+}
+.ca-item h4{
+    font-family: bodyFont;
+    font-style:italic;
+    font-size:12px;
+    text-align:left;
+    border-left:10px solid #0078c2;
+    padding-left:10px;
+    line-height:24px;
+    margin:10px;
+    position:relative;
+}
+.ca-item h4 span{
+    display:block;
+}
+.ca-item h4  span.ca-quote{
+    color:#0078c2;
+    font-size:100px;
+    position:absolute;
+    top:20px;
+    left:0px;
+    text-indent:0px;
+}
+.ca-content-wrapper{
+    background:#0078c2;
+    position:absolute;
+    width:0px; /* expands to width of the wrapper minus 1 element */
+height: 440px;
+    top:10px;
+    text-align:left;
+    z-index:10000;
+    overflow:hidden;
+}
+.ca-content{
+    text-align: justify;
+    overflow:hidden;
+}
+.ca-content-text{
+    font-size: 14px;
+    font-style: italic;
+    font-family: bodyFont;
+    margin:10px 20px;
+    padding:10px 20px;
+    line-height:24px;
+}
+.ca-content-text p{
+    padding-bottom:5px;
+    color:white;
+}
+.ca-content h6{
+    margin:25px 20px 0px 35px;
+    font-size:32px;
+    padding-bottom:5px;
+    font-family: bodyFont;
+    color:white;
+    border-bottom:2px solid white;
+}
+.ca-nav span{
+    width:25px;
+    height:38px;
+    background:transparent url(../img/arrows.png) no-repeat top left;
+    position:absolute;
+    top:50%;
+    margin-top:-19px;
+    left:-40px;
+    text-indent:-9000px;
+    opacity:0.7;
+    cursor:pointer;
+    z-index:100;
+}
+.ca-nav span.ca-nav-next{
+    background-position:top right;
+    left:auto;
+    right:-40px;
+}
+.ca-nav span:hover{
+    opacity:1.0;
+}
