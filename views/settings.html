@@ -13,22 +13,29 @@
 			</ul>
 		</div>
 	</div>
-	<div class="col-md-10">
-		<form id="updateForm">
-			<p>DNI: <label id="currentDNI"></label>
-			<!-- <input type="text" id="newDNI" disabled /></p> -->
-			<p>Nombre: <label id="currentName"></label></p>
-			<p>Nuevo nombre:<input type="text" id="newName" /></p>
-			<p>Mail: <label id="currentMail"></label></p>
-			<p>Nuevo mail:<input type="text" id="newMail" /></p>
-			<p>Password: <label id="currentPassword"></label></p>
-			<p>Nuevo password:<input type="text" id="newPassword" /></p>
-			<input type="button" id="sendChanges" value="Cambiar" onClick="updateUser_php()"/>
-		</form>
+	<div class="col-md-10 settingsDiv">
 
-		<p>
-			<input type="button" onClick="deleteUser_php()" value="Borrar Usuario" />
-		</p>
-	</div>
+		<div class="row">
+			<div class="col-md-3">
+				<p>DNI: <label id="currentDNI"></label>
+					<p>Nombre: <label id="currentName"></label></p>
+					<p>Mail: <label id="currentMail"></label></p>
+					<p>Password: <label id="currentPassword"></label></p>
+				</div>
+				<div class="col-md-5">
+					<form id="updateForm">
+						<p>Nuevo nombre:<input class="inputUser" type="text" id="newName" /></p>
+						<p>Nuevo mail:<input class="inputUser" type="text" id="newMail" /></p>
+						<p>Nuevo password:<input class="inputUser" type="password" id="newPassword" /></p>
+						<button type="button" id="sendChanges" class="btn btn-primary btnDelete" onClick="updateUser_php()">Cambiar Datos</button>			
+					</form>
+				</div>
+				<div class="col-md-4">
+					<button type="button" class="btn btn-primary btnDelete" onClick="deleteUser_php()">Borrar Usuario</button>
 
-</div>
+				</div>
+
+			</div>
+
+		</div>
+		</div>
