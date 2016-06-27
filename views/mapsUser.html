@@ -18,12 +18,14 @@
 
 	</div>
 	<div class="col-md-2">
-		<div id="output"></div>
+		<div id="output"></div>		
+		<button type="button" id="emptyRoute" class="btn btn-primary" onClick="emptyRoute()">Borrar último punto</button>
 		<button type="button" id="closeRoute" class="btn btn-primary" onClick="closeRoute()">Cerrar Ruta</button>
 		<button type="button" id="saveRoute" class="btn btn-primary" onClick="saveRoute()">Guardar Ruta</button>
 		<div class="hideClass">
-		<span class="msgMaps">Dale un nombre a tú ruta: </span><input type="text" id="inputRoute" />
+			<span class="msgMaps">Dale un nombre a tú ruta: </span><input type="text" id="inputRoute" autofocus />
 			<button type="button" id="acceptRoute" class="btn btn-primary" onClick="acceptRoute()">Aceptar</button>
 		</div>
+		 <div class="routeSaved"><p>Ruta Guardada</p></div>
 	</div>
 </div>

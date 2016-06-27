@@ -16,26 +16,38 @@
 	<div class="col-md-10 settingsDiv">
 
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-3 userdata">
+				<img class="img_User" width="50" height="50" src="img/usuario.png" />
 				<p>DNI: <label id="currentDNI"></label>
 					<p>Nombre: <label id="currentName"></label></p>
 					<p>Mail: <label id="currentMail"></label></p>
-					<p>Password: <label id="currentPassword"></label></p>
 				</div>
 				<div class="col-md-5">
+					<center>	<img class="img_User" width="50" height="50" src="img/cambios.png" /></center>
+
 					<form id="updateForm">
-						<p>Nuevo nombre:<input class="inputUser" type="text" id="newName" /></p>
+						<p>Nuevo nombre:<input class="inputUser" type="text" id="newName" autofocus /></p>
 						<p>Nuevo mail:<input class="inputUser" type="text" id="newMail" /></p>
 						<p>Nuevo password:<input class="inputUser" type="password" id="newPassword" /></p>
 						<button type="button" id="sendChanges" class="btn btn-primary btnDelete" onClick="updateUser_php()">Cambiar Datos</button>			
 					</form>
+					<div class="changesUser"><p>Cambios Realizados Correctamente</p></div>
+					<div class="invalidData"><p>Los datos introducidos no son correctos</p></div>
+
+
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 userdata">
+					<img class="img_User" width="50" height="50" src="img/borrar.png" />
+
 					<button type="button" class="btn btn-primary btnDelete" onClick="deleteUser_php()">Borrar Usuario</button>
+					<div class="inputDelete">
+					<p>Introduce tu password: </p>
+						<input type="password" class="confirmDelete" />
+					</div>
 
 				</div>
 
 			</div>
 
 		</div>
-		</div>
+	</div>

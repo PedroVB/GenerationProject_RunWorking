@@ -24,6 +24,8 @@ function writeJSON(){
 	$newData["mail"] = $_POST['mail'];
 	$newData["dni"] = $_POST['dni'];
 	$newData["password"] = $_POST['password'];
+	$newData["coins"] = $_POST['coins'];
+
 
 		//decodifica el json y lo pasamos a un array php
 	$tempArray = json_decode(file_get_contents($file));

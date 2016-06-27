@@ -5,12 +5,13 @@ function call_php() {
 	var password = document.getElementById("passwordRegister").value;
 	var expMail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	var expDni = /(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([A-Z]{1}))/;
+	var initialCoins = 0;
 	if(user.length > 1 && expMail.test(mail) === true && expDni.test(dni) === true && password !== "" ){
 		document.getElementById("formRegister").reset();
 		$.ajax({
 			type: "POST",
 			url: "./insert.php",
-			data: {"action":"write", "file": "./files/User.json", "user": user, "mail": mail, "dni": dni, "password": password},
+			data: {"action":"write", "file": "./files/User.json", "user": user, "mail": mail, "dni": dni, "password": password, "coins": initialCoins},
 			success: function(msg){
 				$(".incorrectUser").show( "blind", {direction: "up"}, 1000 );
 				setTimeout(function() {
@@ -26,3 +27,7 @@ function call_php() {
 		});
 	}
 }
+
+function recaptchaCallback() {
+    $('#btnRegister').removeAttr('disabled');
+};

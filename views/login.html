@@ -5,13 +5,13 @@
                 <form role="form" >
                    <div class="form-group">
                     <label for="user" class="marginLabel">Nombre:</label>
-                    <input type="text" class="form-control init" name="user" title="Tiene que tener 2 letras como mínimo" id="userLogin"  required/>
+                    <input type="text" class="form-control init" name="user" title="Tiene que tener 2 letras como mínimo" id="userLogin"  autofocus required/>
                 </div>
                 <div class="form-group">
                     <label for="passuser">Contraseña:</label>
                     <input type="password" class="form-control" name="passuser" id="passwordLogin" required/>
                 </div>
-                <button class="btnForm" id="btnLogin" onClick="userAccess()">Iniciar Sesión</button>
+                <button class="btnForm btn btn-primary" id="btnLogin" onClick="userAccess()">Iniciar Sesión</button>
             </form>
             <div class="incorrectUser"><p>Los datos introducidos son incorrectos</p></div>
 

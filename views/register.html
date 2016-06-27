@@ -5,7 +5,7 @@
                 <form role="form" id="formRegister">
                     <div class="form-group">
                         <label for="nombre" class="marginReg">Nombre:</label>
-                        <input type="text" class="form-control reginput" name="nombre" title="Tiene que tener 2 letras como mínimo" id="userRegister" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" placeholder="XX" required/>
+                        <input type="text" class="form-control reginput" name="nombre" title="Tiene que tener 2 letras como mínimo" id="userRegister" autofocus pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" placeholder="XX" required/>
                     </div>
                     <div class="form-group">
                         <label for="correo">Correo Electrónico:</label>
@@ -19,14 +19,30 @@
                         <label for="pass">Contraseña:</label>
                         <input type="password" class="form-control" name="pass" id="passwordRegister" required/>
                     </div>
-                    <button type="submit" class="btnForm" id="btnRegister" onClick="call_php()">Registrar</button>
+
+                    <div class="row divCaptcha">
+                    <div class="col-md-6">
+                   <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LegliMTAAAAAAsC_FHb1B-XI3jJl35odZ9HSENi"></div>
+                    </div>
+                     <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary btnForm pull-right" id="btnRegister" onClick="call_php()" disabled>Registrar</button>
+
+                    </div>
+</div>
+
+
                 </form>
+
+
             </div>
         </div>
-            <div class="incorrectUser"><p>Te has registrado Correctamente</p></div>
+        <div class="incorrectUser"><p>Te has registrado Correctamente</p></div>
+
 
     </div>
     <div id="msgLogin"></div>
     <div id="btnAccess"></div>
 
 </div>
+
+<script src='https://www.google.com/recaptcha/api.js?hl=es'></script>

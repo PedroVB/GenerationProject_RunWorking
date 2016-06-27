@@ -1,0 +1,21 @@
+<div ng-controller="tempController">
+
+	<div class="page-index clearfix">
+		<div class="container clearfix cajaTemp">
+			<p class="location"></p>
+			<p class="temperature"></p>
+			<div class="climate_bg"></div>
+			<div class="info_bg">
+				<img class="dropicon" src="img/images/Droplet.svg">
+				<p class="humidity"></p>
+
+				<img class="windicon" src="img/images/Wind.svg">
+				<div class="windspeed"></div>
+			</div>
+		</div>
+		<center>
+			<input type="text" id="searchCity" size="40" autofocus />
+			<button class="btn btn-primary" onClick="go()">Buscar</button>
+		</center>
+	</div>
+</div>
