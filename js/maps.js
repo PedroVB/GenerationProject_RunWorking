@@ -47,18 +47,21 @@ function paintMap(name){
 				if(name === arrayRoute[i].name){
 					var coor = arrayRoute[i].route;
 					generalRoute = coor;
-					for (i = 1; i < generalRoute.length; i++){
+					for (x = 1; x < generalRoute.length; x++){
 
-						paintRoute(mapGlobal, i);
+						paintRoute(mapGlobal, x);
 					}
+					var outputMap = document.getElementById('outputMap');
+					outputMap.innerHTML += 'Distania Total: ' + arrayRoute[i].distance + ' km - Tiempo Estimado: ' + arrayRoute[i].time + ' min';
+
 				}
-			};
-			
+			}
+
 		}
 	});
-}
+				}
 
-function paintRoute(mapGlobal, i){
+				function paintRoute(mapGlobal, i){
 	//var og = generalRoute.length - 2;
 	var lastmap = new google.maps.LatLng(generalRoute[i-1].lat, generalRoute[i-1].lng);
 	var nowmap = new google.maps.LatLng(generalRoute[i].lat, generalRoute[i].lng);

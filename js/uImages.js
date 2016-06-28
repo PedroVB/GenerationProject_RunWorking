@@ -24,7 +24,7 @@ $.ajax({
 		$("#myImgs").empty();
 		for (var i = 0; i < arrayImages.length; i++){
 			if (arrayImages[i].key == actualUser.dni){
-				$("#myImgs").append('<img src="' + arrayImages[i].url + '" />');
+				$("#myImgs").append('<div class="col-md-3"><img style="margin-top:20px;width:250px" src="' + arrayImages[i].url + '" /></div>');
 			}
 		}
 	}

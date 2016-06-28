@@ -7,7 +7,7 @@
 			<ul>
 				<li><a href="/mapsUser" >Mis Rutas</a></li>
 				<li><a href="/uImages">Mis Imágenes</a></li>
-				<li><a href="...">Mis Videos</a></li>
+				<li><a href="#">Mis Videos</a></li>
 				<li class="last"><a href="/settings">Configuración</a></li>
 			</ul>
 		</div>
@@ -20,12 +20,15 @@
 	<div class="col-md-2">
 		<div id="output"></div>		
 		<button type="button" id="emptyRoute" class="btn btn-primary" onClick="emptyRoute()">Borrar último punto</button>
-		<button type="button" id="closeRoute" class="btn btn-primary" onClick="closeRoute()">Cerrar Ruta</button>
+		<button type="button" id="closeRoute" class="btn btn-primary" onClick="closeRoute()">Volver al punto de salida</button>
 		<button type="button" id="saveRoute" class="btn btn-primary" onClick="saveRoute()">Guardar Ruta</button>
 		<div class="hideClass">
 			<span class="msgMaps">Dale un nombre a tú ruta: </span><input type="text" id="inputRoute" autofocus />
 			<button type="button" id="acceptRoute" class="btn btn-primary" onClick="acceptRoute()">Aceptar</button>
 		</div>
 		 <div class="routeSaved"><p>Ruta Guardada</p></div>
+		 <div class="routeInUse"><p>Nombre de ruta ya en uso</p></div>
+		 <div class="coinsWins"><p>Has ganado 5 coins</p></div>
+		 
 	</div>
 </div>

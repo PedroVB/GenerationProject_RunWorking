@@ -92,103 +92,103 @@ function toggleBounce(marker) {
 		currentPath.push(event.latLng);
 	}*/
 
-	function route(event, map){
+function route(event, map){
 
-		var og = destinations.length - 2;
+	var og = destinations.length - 2;
 
-		var lastmap = new google.maps.LatLng(destinations[og].lat, destinations[og].lng);
-		var nowmap = new google.maps.LatLng(destinations[destinations.length-1].lat, destinations[destinations.length-1].lng);
+	var lastmap = new google.maps.LatLng(destinations[og].lat, destinations[og].lng);
+	var nowmap = new google.maps.LatLng(destinations[destinations.length-1].lat, destinations[destinations.length-1].lng);
 
-		var obConfigDR = {
-			map: map,
-			suppressMarkers: true
-		}
-
-		var obConfigDS = {
-			origin: lastmap,
-			destination: nowmap,
-			travelMode: google.maps.TravelMode.WALKING
-		}
-
-		var ds = new google.maps.DirectionsService();
-		dr = new google.maps.DirectionsRenderer(obConfigDR);
-
-		ds.route(obConfigDS, fnRoute);
-
-		function fnRoute(results, status){
-			if (status == "OK"){
-				dr.setDirections(results);
-			} else {
-				alert("Not found");
-			}
-		}
+	var obConfigDR = {
+		map: map,
+		suppressMarkers: true
 	}
 
-	function distanceFull(origin, end) {
+	var obConfigDS = {
+		origin: lastmap,
+		destination: nowmap,
+		travelMode: google.maps.TravelMode.WALKING
+	}
 
-		var origin2 = '';
-		var destinationA = '';
+	var ds = new google.maps.DirectionsService();
+	dr = new google.maps.DirectionsRenderer(obConfigDR);
 
-		var destinationIcon = './img/serdo.gif';
-		var originIcon = './img/serdo.gif';
+	ds.route(obConfigDS, fnRoute);
 
-		//var geocoder = new google.maps.Geocoder;
+	function fnRoute(results, status){
+		if (status == "OK"){
+			dr.setDirections(results);
+		} else {
+			alert("Not found");
+		}
+	}
+}
 
-		var service = new google.maps.DistanceMatrixService;
-		service.getDistanceMatrix({
-			origins: [origin, origin2],
-			destinations: [destinationA, end],
-			travelMode: google.maps.TravelMode.WALKING,
-			unitSystem: google.maps.UnitSystem.METRIC,
-			avoidHighways: false,
-			avoidTolls: false
-		}, function(response, status) {
-			if (status !== google.maps.DistanceMatrixStatus.OK) {
-				alert('Error was: ' + status);
-			} else {
-				var originList = response.originAddresses;
-				var destinationList = response.destinationAddresses;
-				var outputDiv = document.getElementById('output');
-				outputDiv.innerHTML = '';
+function distanceFull(origin, end) {
 
-				for (var i = 0; i < originList.length; i++) {
-					var results = response.rows[i].elements;
-					//geocoder.geocode({'address': originList[i]});
-					for (var j = 0; j < results.length - 1; j++) {
-						//geocoder.geocode({'address': destinationList[j+1]});
-						if(results[j+1].status == "OK"){
-							var totalTime = results[j+1].duration.text;
-							endTime = endTime + getEndTime(totalTime);
-							var totalDistance = results[j+1].distance.text;
-							endDistance = endDistance + getEndDistance(totalDistance);
-							outputDiv.innerHTML += 'Has recorrido ' + endDistance.toFixed(2) + ' km en ' + endTime + ' min <br>';
-							//outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j+1] + ': ' + results[j+1].distance.text + ' in ' + results[j+1].duration.text + '<br>';
-						}
+	var origin2 = '';
+	var destinationA = '';
+
+	var destinationIcon = './img/serdo.gif';
+	var originIcon = './img/serdo.gif';
+
+	//var geocoder = new google.maps.Geocoder;
+
+	var service = new google.maps.DistanceMatrixService;
+	service.getDistanceMatrix({
+		origins: [origin, origin2],
+		destinations: [destinationA, end],
+		travelMode: google.maps.TravelMode.WALKING,
+		unitSystem: google.maps.UnitSystem.METRIC,
+		avoidHighways: false,
+		avoidTolls: false
+	}, function(response, status) {
+		if (status !== google.maps.DistanceMatrixStatus.OK) {
+			alert('Error was: ' + status);
+		} else {
+			var originList = response.originAddresses;
+			var destinationList = response.destinationAddresses;
+			var outputDiv = document.getElementById('output');
+			outputDiv.innerHTML = '';
+
+			for (var i = 0; i < originList.length; i++) {
+				var results = response.rows[i].elements;
+				//geocoder.geocode({'address': originList[i]});
+				for (var j = 0; j < results.length - 1; j++) {
+					//geocoder.geocode({'address': destinationList[j+1]});
+					if(results[j+1].status == "OK"){
+						var totalTime = results[j+1].duration.text;
+						endTime = endTime + getEndTime(totalTime);
+						var totalDistance = results[j+1].distance.text;
+						endDistance = endDistance + getEndDistance(totalDistance);
+						outputDiv.innerHTML += 'Has recorrido ' + endDistance.toFixed(2) + ' km en ' + endTime + ' min <br>';
+						//outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j+1] + ': ' + results[j+1].distance.text + ' in ' + results[j+1].duration.text + '<br>';
 					}
 				}
 			}
-		});
-	}
+		}
+	});
+}
 
-	function getEndTime(totalTime){
-		var posTime = totalTime.indexOf(" ");
-		totalTime = totalTime.substr("0", posTime);
-		totalTime = parseInt(totalTime);
-		totalTime = parseInt(totalTime * 0.4);
-		return totalTime;
-	}
+function getEndTime(totalTime){
+	var posTime = totalTime.indexOf(" ");
+	totalTime = totalTime.substr("0", posTime);
+	totalTime = parseInt(totalTime);
+	totalTime = parseInt(totalTime * 0.4);
+	return totalTime;
+}
 
-	function getEndDistance(totalDistance){
-		var posDistance = totalDistance.indexOf(" ");
-		totalDistance = totalDistance.substr("0", posDistance);
-		totalDistance = totalDistance.replace(",", ".");
-		totalDistance = parseFloat(totalDistance);
-		return totalDistance;
-	}
+function getEndDistance(totalDistance){
+	var posDistance = totalDistance.indexOf(" ");
+	totalDistance = totalDistance.substr("0", posDistance);
+	totalDistance = totalDistance.replace(",", ".");
+	totalDistance = parseFloat(totalDistance);
+	return totalDistance;
+}
 
-	function closeRoute(){
-		var newpoint = {"lat": destinations[0].lat, "lng": destinations[0].lng};
-		destinations.push(newpoint);
+function closeRoute(){
+	var newpoint = {"lat": destinations[0].lat, "lng": destinations[0].lng};
+	destinations.push(newpoint);
 
 	//poliLyne(event, map);
 	if(destinations.length > 1){
@@ -223,7 +223,7 @@ function acceptRoute(){
 					$.ajax({
 						type: "POST",
 						url: "./insert_route.php",
-						data: {"action":"write", "file": "./files/Routes.json", "name": nameRoute, "route": destinations, "key": key},
+						data: {"action":"write", "file": "./files/Routes.json", "name": nameRoute, "distance": endDistance.toFixed(2), "time": endTime, "route": destinations, "key": key},
 						success: function(msg){
 							$(".routeSaved").show( "blind", {direction: "up"}, 1000 );
 							setTimeout(function() {
@@ -232,17 +232,45 @@ function acceptRoute(){
 							$(".hideClass").attr('style', 'display: none');
 							document.getElementById("inputRoute").value = "";
 							destinations = [];
+							plusCoins();
 						},
 						error: function(err){
 							alert(err);
 						}
 					});
 				} else {
-					alert ("Ese nombre ya esta en uso");
+					$(".routeInUse").show( "blind", {direction: "up"}, 1000 );
+					setTimeout(function() {
+						$(".routeInUse").fadeOut(1500);
+					},3000);
 				}
 			}
 		});
 	}
+}
+
+function plusCoins(){
+	var sessionUser = JSON.parse(window.sessionStorage.getItem('user'));
+	var dni = sessionUser.dni;
+	var coins = parseInt(sessionUser.coins);
+	coins = coins + 5;
+	$.ajax({
+		type: "POST",
+		url: "./insert.php",
+		data: {"action":"updateCoins", "file": "./files/User.json", "dni": dni, "coins": coins},
+		success: function(msg){
+			sessionUser.coins = coins;
+			window.sessionStorage.setItem('user', JSON.stringify(sessionUser));
+			$(".sessionCoins").text(coins);
+			$(".coinsWins").show( "blind", {direction: "up"}, 1000 );
+			setTimeout(function() {
+				$(".coinsWins").fadeOut(1500);
+			},3000);
+		},
+		error: function(err){
+			alert(err);
+		}
+	});
 }
 
 function emptyRoute(){

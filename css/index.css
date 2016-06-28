@@ -1,569 +1,648 @@
   @font-face {
-    font-family: bodyFont;
-    src: url(../fonts/OpenSans-Regular.ttf);
+      font-family: bodyFont;
+      src: url(../fonts/OpenSans-Regular.ttf);
   }
   @font-face {
-    font-family: headerFont;
-    src: url(../fonts/batmfa.ttf);
+      font-family: headerFont;
+      src: url(../fonts/batmfa.ttf);
   }
-  .msgSoporte, .msgCascos, .msgCamiseta, .msgPulso, .msgReloj, .msgGuantes, .msgCalcetines, .msgRino, .msgZapas{
-    text-align: center;
-    visibility: hidden;
-    font-weight: bold;
-    font-family: bodyFont;
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
   }
-
-  .siteCoin{
-    text-align: center;
-    height:100px;    
+  .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      border: 3px solid black;
+      width: 80%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
   }
-  .siteCoin > img{
-    margin-top: 15px;
+  @-webkit-keyframes animatetop {
+      from {
+          top: -300px;
+          opacity: 0
+      }
+      to {
+          top: 0;
+          opacity: 1
+      }
   }
-
-  .seccionStore{
-    border:2px solid black;
-    margin: 5px;
-    cursor:pointer;
+  @keyframes animatetop {
+      from {
+          top: -300px;
+          opacity: 0
+      }
+      to {
+          top: 0;
+          opacity: 1
+      }
+  }
+  .close {
+      color: white;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  .modal-header {
+      background-color: #0078c2;
+      color: white;
+      text-align: center;
+      padding: 0px !important;
+      font-family: bodyFont;
+      font-size: 20px;
+  }
+  .modal-body {
+      padding-top: 50px;
+      text-align: center;
+      padding-bottom: 50px;
+  }
+  .modal-footer {
+      padding: 0px !important;
+      background-color: #0078c2;
+      color: white;
+      text-align: center;
+      font-family: bodyFont;
+      font-size: 20px;
+  }
+  .noCoins {
+      visibility: hidden;
+  }
+  .msgSoporte,
+  .msgCascos,
+  .msgCamiseta,
+  .msgPulso,
+  .msgReloj,
+  .msgGuantes,
+  .msgCalcetines,
+  .msgRino,
+  .msgZapas {
+      text-align: center;
+      visibility: hidden;
+      font-weight: bold;
+      font-family: bodyFont;
+  }
+  .siteCoin {
+      text-align: center;
+      height: 100px;
+  }
+  .siteCoin > img {
+      margin-top: 15px;
+  }
+  .seccionStore {
+      border: 2px solid black;
+      margin: 5px;
+      cursor: pointer;
   }
   #imgGaleria {
-    padding: 10px;
-    width: 455px; /* Ancho de la imagen */
-    height: 455px; /* Alto de la imagen */
-    border:2px solid black;
+      padding: 10px;
+      width: 455px;
+      height: 455px;
+      border: 2px solid black;
   }
   .miniatura {
-    width:  100px;  /* Ancho de las miniaturas */
-    height:  100px;  /* Alto de las miniaturas */
-    cursor: pointer;
-    padding: 5px;
-    margin: 10px 5px;
-    border:2px solid #0078c2;
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+      padding: 5px;
+      margin: 10px 5px;
+      border: 2px solid #0078c2;
   }
-  #galeria_imagen, #galeria_miniaturas{
-    width: 100%;
-    text-align: center;
+  #galeria_imagen,
+  #galeria_miniaturas {
+      width: 100%;
+      text-align: center;
   }
-  #galeria_miniaturas{
-
-    margin-top: 50px;
+  #galeria_miniaturas {
+      margin-top: 50px;
   }
   .miniatura:hover {
-    opacity:.8;   /* Opacidad */
-    -moz-opacity:.8;
-    -khtml-opacity:.8;
-    filter:alpha(opacity=80);
+      opacity: .8;
+      -moz-opacity: .8;
+      -khtml-opacity: .8;
+      filter: alpha(opacity=80);
   }
   .miniatura:active {
-    opacity:1;
-    -moz-opacity:1;
-    -khtml-opacity:1;
-    filter:alpha(opacity=80);
+      opacity: 1;
+      -moz-opacity: 1;
+      -khtml-opacity: 1;
+      filter: alpha(opacity=80);
   }
-  #reloj{
-    font-family:headerFont;
-    color: black;
-    font-size: 100px;
-    text-align: center;
+  #reloj {
+      font-family: headerFont;
+      color: black;
+      font-size: 100px;
+      text-align: center;
   }
-  #map, #mapGlobal{
-    width: 100%;
-    height: 450px;
-    border-left:3px solid #0078c2;
+  #mapGlobal {
+      width: 100%;
+      height: 420px;
+      border-left: 3px solid #0078c2;
   }
-  .paddingMaps{
-    padding-right:0px !important;
-    padding-left:0px !important;
+  #map {
+      width: 100%;
+      height: 450px;
+      border-left: 3px solid #0078c2;
   }
-  .changesUser, .outUser, .invalidData, .routeSaved{
-    width:100%;
-    background: #88AECB;
-    text-align: center;
-    height:40px;
-    display: table;
-    border: 2px solid #0078c2 ;
-    font-weight: bold;
-    font-family: bodyFont;
-    margin-top: 50px;
+  #outputMap {
+      text-align: center;
+      padding-top: 10px;
+      font-weight: bold;
   }
-  .incorrectUser{
-    width:100%;
-    background: #88AECB;
-    text-align: center;
-    height:40px;
-    display: table;
-    border: 2px solid #0078c2 ;
-    font-weight: bold;
-    font-family: bodyFont;
-    margin-top: 20px;
+  .paddingMaps {
+      padding-right: 0px !important;
+      padding-left: 0px !important;
   }
-  .img_User{
-    margin-bottom: 40px;
+  .changesUser,
+  .outUser,
+  .invalidData,
+  .routeSaved,
+  .routeInUse,
+  .coinsWins,
+  .msgBuy,
+  .msgDirection {
+      width: 100%;
+      background: #88AECB;
+      text-align: center;
+      height: 40px;
+      display: table;
+      border: 2px solid #0078c2;
+      font-weight: bold;
+      font-family: bodyFont;
+      margin-top: 50px;
   }
-  .userdata{
-    text-align: center;
+  .incorrectUser {
+      width: 100%;
+      background: #88AECB;
+      text-align: center;
+      height: 40px;
+      display: table;
+      border: 2px solid #0078c2;
+      font-weight: bold;
+      font-family: bodyFont;
+      margin-top: 20px;
   }
-
-  .inputDelete{
-    display: none;
-    margin-top: 20px;
+  .img_User {
+      margin-bottom: 40px;
   }
-
+  .userdata {
+      text-align: center;
+  }
+  .inputDelete {
+      display: none;
+      margin-top: 20px;
+  }
   .form-group {
-    margin-bottom: 10px !important;
+      margin-bottom: 10px !important;
   }
-
-  .incorrectUser > *, .changesUser > *, .invalidData > *, .routeSaved > *{
-    display: table-cell;
-    vertical-align: middle;
+  .incorrectUser > *,
+  .changesUser > *,
+  .invalidData > *,
+  .routeSaved > *,
+  .routeInUse > *,
+  .coinsWins > *,
+  .msgBuy > *,
+  .msgDirection > * {
+      display: table-cell;
+      vertical-align: middle;
   }
-  .settingsDiv{
-    height: 450px;
-    padding-top: 80px;
-    font-weight: bold;
-    font-family: bodyFont;
+  .settingsDiv {
+      height: 450px;
+      padding-top: 80px;
+      font-weight: bold;
+      font-family: bodyFont;
   }
-
-
-  #closeRoute, #saveRoute, #emptyRoute{
-    width:100%;
-    margin-bottom: 20px;
+  #closeRoute,
+  #saveRoute,
+  #emptyRoute {
+      width: 100%;
+      margin-bottom: 20px;
   }
-  .hideClass{
-    display: none;
-    font-weight: bold;
-    font-family: bodyFont;
-    text-align:center;
+  .hideClass {
+      display: none;
+      font-weight: bold;
+      font-family: bodyFont;
+      text-align: center;
   }
-  .routeClass{
-    cursor:pointer;
-    margin-bottom: 20px;
+  .routeClass {
+      cursor: pointer;
+      margin-bottom: 20px;
   }
-  #inputRoute{
-    margin-bottom: 20px;
+  #inputRoute {
+      margin-bottom: 20px;
   }
-  .msgMaps{
-    margin-bottom: 20px;
+  .msgMaps {
+      margin-bottom: 20px;
   }
-  #routeList{
-    list-style: none;
-    margin-top: 20px;
-    font-weight: bold;
-    font-family: bodyFont;
-    padding-right:0px !important;
-    padding-left:0px !important;
-    text-align: center;
+  #routeList {
+      list-style: none;
+      margin-top: 20px;
+      font-weight: bold;
+      font-family: bodyFont;
+      padding-right: 0px !important;
+      padding-left: 0px !important;
+      text-align: center;
   }
-  #output{
-    margin-top:20px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-family:bodyFont;
-    font-weight: bold;
-
+  #output {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-family: bodyFont;
+      font-weight: bold;
   }
-  .hello{
-    font-family:headerFont;
-    color: black;
-    font-size: 100px;
-    text-align: center;
-    margin-top: 7%;
+  .hello {
+      font-family: headerFont;
+      color: black;
+      font-size: 90px;
+      text-align: center;
+      margin-top: 7%;
   }
-  .btnDelete{
-    width: 100%;
+  .btnDelete {
+      width: 100%;
   }
-  .colGeneral{
-    padding-right: 0px !important;
+  .colGeneral {
+      padding-right: 0px !important;
   }
-
-  #sendChanges{
-    margin-top: 20px;
+  #sendChanges {
+      margin-top: 20px;
   }
-  .inputUser{
-   display: inline-block;
-   float: right;
- }
- #formRegister{
-  margin-top: -30px;
-}
-.question{
-  font-family: headerFont;
-  color: black;
-  text-align: center;10px
-}
-.marginLabel{
-  margin-top: 100px !important;
-}
-.siteLogin{
-  margin-top: -40px;
-}
-.marginReg{
-  margin-top: 40px !important;
-}
-.siteVideo{
-  margin-top: -20px;
-}
-.siteComent{
-  margin-top: -20px;
-}
-.avatar{
-  width: 100%;
-  text-align: center;
-}
-#menu{
-  padding-top: 60px;
-  background-color: #88AECB ;
-
-}
-
-.avatar{
-  padding-bottom: 30px;
-}
-.last{
-  padding-bottom: 30px;
-}
-#menu ul {
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-  font-family: bodyFont;
-  font-size: 11pt;
-  font-weight: bold;
-  width: 100%
-}
-#menu ul li {
-  background-color: #88AECB ;
-}
-.redondo {
-  border: 4px solid #0078c2;
-
-  border-radius: 800px;
-  overflow: hidden;
-  width: 100px;
-  height: 100px;
-}
-.avatar{
-  width: 100%;
-}
-#menu ul li a {
-  color: black;
-  text-decoration: none;
-  text-transform: uppercase;
-  display: block;
-  padding: 20px 20px 20px 30px;
-}
-#menu ul li a:hover {
-  background: #0078c2;
-  border-left: 10px solid black ;
-  color: white;
-}
-
-.sloganSite{
-  font-family: headerFont;
-  color: #0078c2;
-  font-size: 50px;
-  font-weight: bold;
-  text-align: right;
-}
-
-.sloganSite {
-  height: 110px;
-  display: table;
-}
-.sloganSite > * {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.logoSite{
-  text-align: center;
-}
-
-
-@media screen and (max-width: 992px) {
+  .inputUser {
+      display: inline-block;
+      float: right;
+  }
+  #formRegister {
+      margin-top: -30px;
+  }
+  .question {
+      font-family: headerFont;
+      color: black;
+      text-align: center;
+      10px
+  }
+  .marginLabel {
+      margin-top: 100px !important;
+  }
+  .siteLogin {
+      margin-top: -40px;
+  }
+  .marginReg {
+      margin-top: 40px !important;
+  }
+  .siteVideo {
+      margin-top: -20px;
+  }
+  .siteComent {
+      margin-top: -20px;
+  }
+  .avatar {
+      width: 100%;
+      text-align: center;
+  }
+  #menu {
+      padding-top: 60px;
+      background-color: #88AECB;
+  }
+  .avatar {
+      padding-bottom: 30px;
+  }
+  .last {
+      padding-bottom: 30px;
+  }
+  #menu ul {
+      list-style-type: none;
+      margin: 0px;
+      padding: 0px;
+      font-family: bodyFont;
+      font-size: 11pt;
+      font-weight: bold;
+      width: 100%
+  }
+  #menu ul li {
+      background-color: #88AECB;
+  }
+  .redondo {
+      border: 4px solid #0078c2;
+      border-radius: 800px;
+      overflow: hidden;
+      width: 100px;
+      height: 100px;
+  }
+  .avatar {
+      width: 100%;
+  }
+  #menu ul li a {
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: block;
+      padding: 20px 20px 20px 30px;
+  }
+  #menu ul li a:hover {
+      background: #0078c2;
+      border-left: 10px solid black;
+      color: white;
+  }
   .sloganSite {
-    display:none;
+      font-family: headerFont;
+      color: #0078c2;
+      font-size: 50px;
+      font-weight: bold;
+      text-align: right;
   }
-}
-
-.navbar-inverse {
-  background-color: #0078c2;
-  border-color: #0078c2;
-}
-.navbar-inverse .navbar-nav>li>a {
-  color: white;
-  font-family: bodyFont;
-  font-size: 15px;
-  font-weight: bold;
-}
-.textSlide{
-  color:black;
-}
-.raceList {
-  font-family: bodyFont;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #EDEDED;
-  display: table;
-  width: 100%;
-}
-.raceDiv {
-  margin-bottom: 60px;
-}
-
-.RacesPhrase {
-  font-family: bodyFont;
-}
-.imgRace {
-  float: left;
-  margin-right: 20px;
-  height: 170px;
-}
-.blueColor {
-  color: #0078c2;
-  font-weight: bold;
-}
-
-body{
-  overflow-x: hidden;
-}
-
-.list-left {
-  padding: 10px;
-  float: left;
-  width: 100%;
-}
-.list-left img {
-  margin-top: 25px;
-  margin-left: -30px;
-  width: 100%;
-  padding: 3px;
-  border: 1px solid #ccc;
-}
-
-.fancybox-skin {
-  position: relative;
-  background: #0078c2 !important;
-  color: #444;
-  text-shadow: none;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-
-
-.panel-group .panel {
-  margin-top:25px;
-}
-
-.titlePost{
-  font-weight: bold;
-  color:black;
-  font-family: bodyFont;
-  font-style: italic;
-}
-
-.headPost{
-  font-family: bodyFont;
-  font-style: italic;
-  font-size: 12px;
-  line-height: 24px;
-  color:black;
-}
-
-.panel-body{
-  font-family: bodyFont;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-form input[type="email"]:required:valid{
- border:2px solid green;
- /* otras propiedades */
-}
-/*caso contrario, el color sera rojo*/
-form input[type="email"]:required:invalid{
- border:2px solid red;
- /* otras propiedades */
-}
-
-form input[type="text"]:required:valid{
- border:2px solid green;
- /* otras propiedades */
-}
-/*caso contrario, el color sera rojo*/
-form input[type="text"]:required:invalid{
- border:2px solid red;
- /* otras propiedades */
-}
-.correct{
-  font-family: headerFont;
-  color:#0078c2;
-  font-size: 30px;
-  text-align: center;
-  margin-top: 140px;
-}
-.btnCorrect{
-  text-align: center;
-}
-.footerElements a {
- color: white;
- font-family: bodyFont;
-}
-.footerElements {
- text-align: center;
- padding-top: 15px;
-}
-.info_bg p {
-  margin-bottom: -.2em;
-}
-
-.climate_bg {
-  position: absolute;
-  top: 0;
-  left: 235px;
-  z-index: 6;
-  width: 163px;
-  height: 149px;
-  border-top-right-radius: 10px;
-  background-color: rgb(255, 255, 255);
-}
-
-.weathericon {
-  display: block;
-  position: absolute;
-  top: -5px;
-  left: 1.226993865%;
-  z-index: 5;
-  width: 160px;
-  height: auto;
-  overflow: hidden;
-}
-
-.cajaTemp {
-  position: absolute;
-  top: 150px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9;
-  width: 398px;
-  height: 208px;
-  margin: auto;
-  border-radius: 10px;
-  background-color: rgb(0, 0, 0);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-  opacity: 0.8;
-}
-
-#searchCity{
-  margin-top: 40px;
-}
-.dropicon {
-  display: block;
-  position: absolute;
-  top: 9px;
-  left: -3.9110429448%;
-  z-index: 3;
-  width: 41px;
-  height: auto;
-  overflow: hidden;
-}
-
-.not-available, .failed {
-  position: absolute;
-  top: 464px;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  width: 248px;
-  min-height: 24px;
-  margin: 0 auto;
-  font: 0.625em/1.38 'Trebuchet MS';
-  color: rgb(0, 0, 0);
-}
-
-.humidity {
-  position: absolute;
-  top: 19px;
-  left: 29px;
-  z-index: 2;
-  width: 46px;
-  min-height: 29px;
-  font-size: 1em;
-  line-height: 1.38;
-  text-align: center;
-  color: #ffffff;
-  font-family: bodyFont;
-  font-weight: bold;
-}
-
-.info_bg {
-  position: absolute;
-  top: 149px;
-  left: 235px;
-  z-index: 4;
-  width: 163px;
-  height: 59px;
-  border-bottom-right-radius: 10px;
-  background-color: #1ab1ed;
-}
-
-.location {
-  position: absolute;
-  top: 128px;
-  left: 63px;
-  z-index: 8;
-  width: 108px;
-  min-height: 59px;
-  font-size: 1.313em;
-  font-weight: 400;
-  line-height: 1.38;
-  text-transform: uppercase;
-  color: rgb(255, 255, 255);
-  font-family: headerFont;
-}
-
-.temperature {
-  position: absolute;
-  top: 38px;
-  left: 72px;
-  z-index: 7;
-  width: 109px;
-  min-height: 28px;
-  font-size: 4.25em;
-  font-weight: 700;
-  line-height: 1.38;
-  color: rgb(255, 255, 255);
-  font-family: bodyFont;
-
-}
-
-.windicon {
-  display: block;
-  position: absolute;
-  top: 5px;
-  left: 43.1173312883%;
-  z-index: 1;
-  width: 50px;
-  height: auto;
-  overflow: hidden;
-}
-
-.windspeed {
-  position: absolute;
-  top: 9px;
-  left: 109px;
-  width: 50px;
-  min-height: 29px;
-  font-size: 1em;
-  line-height: 1.38;
-  text-align: center;
-  color: #ffffff;
-}
-
-.windspeed p {
-  margin-bottom: -.2em;
-  font-family: bodyFont;
-  font-weight: bold;
-}
+  .sloganSite {
+      height: 110px;
+      display: table;
+  }
+  .sloganSite > * {
+      display: table-cell;
+      vertical-align: middle;
+  }
+  .logoSite {
+      text-align: center;
+  }
+  @media screen and (max-width: 992px) {
+      .sloganSite {
+          display: none;
+      }
+  }
+  .navbar-inverse {
+      background-color: #0078c2;
+      border-color: #0078c2;
+  }
+  .navbar-inverse .navbar-nav>li>a {
+      color: white;
+      font-family: bodyFont;
+      font-size: 15px;
+      font-weight: bold;
+  }
+  .textSlide {
+      color: black;
+  }
+  .raceList {
+      font-family: bodyFont;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #EDEDED;
+      display: table;
+      width: 100%;
+  }
+  .raceDiv {
+      margin-bottom: 60px;
+  }
+  .RacesPhrase {
+      font-family: bodyFont;
+  }
+  .imgRace {
+      float: left;
+      margin-right: 20px;
+      height: 170px;
+  }
+  .blueColor {
+      color: #0078c2;
+      font-weight: bold;
+  }
+  body {
+      overflow-x: hidden;
+  }
+  .list-left {
+      padding: 10px;
+      float: left;
+      width: 100%;
+  }
+  .list-left img {
+      margin-top: 25px;
+      margin-left: -30px;
+      width: 100%;
+      padding: 3px;
+      border: 1px solid #ccc;
+  }
+  .fancybox-skin {
+      position: relative;
+      background: #0078c2 !important;
+      color: #444;
+      text-shadow: none;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+  }
+  .panel-group .panel {
+      margin-top: 25px;
+  }
+  .titlePost {
+      font-weight: bold;
+      color: black;
+      font-family: bodyFont;
+      font-style: italic;
+  }
+  .headPost {
+      font-family: bodyFont;
+      font-style: italic;
+      font-size: 12px;
+      line-height: 24px;
+      color: black;
+  }
+  .panel-body {
+      font-family: bodyFont;
+      font-size: 15px;
+      font-weight: bold;
+  }
+  form input[type="email"]:required:valid {
+      border: 2px solid green;
+      /* otras propiedades */
+  }
+  /*caso contrario, el color sera rojo*/
+  
+  form input[type="email"]:required:invalid {
+      border: 2px solid red;
+      /* otras propiedades */
+  }
+  form input[type="text"]:required:valid {
+      border: 2px solid green;
+      /* otras propiedades */
+  }
+  /*caso contrario, el color sera rojo*/
+  
+  form input[type="text"]:required:invalid {
+      border: 2px solid red;
+      /* otras propiedades */
+  }
+  .correct {
+      font-family: headerFont;
+      color: #0078c2;
+      font-size: 30px;
+      text-align: center;
+      margin-top: 140px;
+  }
+  .btnCorrect {
+      text-align: center;
+  }
+  .footerElements a {
+      color: white;
+      font-family: bodyFont;
+      font-weight: bold;
+  }
+  .footerElements {
+      text-align: center;
+      padding-top: 15px;
+  }
+  .info_bg p {
+      margin-bottom: -.2em;
+  }
+  .climate_bg {
+      position: absolute;
+      top: 0;
+      left: 235px;
+      z-index: 6;
+      width: 163px;
+      height: 149px;
+      border-top-right-radius: 10px;
+      background-color: rgb(255, 255, 255);
+  }
+  .weathericon {
+      display: block;
+      position: absolute;
+      top: -5px;
+      left: 1.226993865%;
+      z-index: 5;
+      width: 160px;
+      height: auto;
+      overflow: hidden;
+  }
+  .cajaTemp {
+      position: absolute;
+      top: 150px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9;
+      width: 398px;
+      height: 208px;
+      margin: auto;
+      border-radius: 10px;
+      background-color: rgb(0, 0, 0);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      opacity: 0.8;
+  }
+  #searchCity {
+      margin-top: 40px;
+  }
+  .dropicon {
+      display: block;
+      position: absolute;
+      top: 9px;
+      left: -3.9110429448%;
+      z-index: 3;
+      width: 41px;
+      height: auto;
+      overflow: hidden;
+  }
+  .not-available,
+  .failed {
+      position: absolute;
+      top: 464px;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      width: 248px;
+      min-height: 24px;
+      margin: 0 auto;
+      font: 0.625em/1.38 'Trebuchet MS';
+      color: rgb(0, 0, 0);
+  }
+  .humidity {
+      position: absolute;
+      top: 19px;
+      left: 29px;
+      z-index: 2;
+      width: 46px;
+      min-height: 29px;
+      font-size: 1em;
+      line-height: 1.38;
+      text-align: center;
+      color: #ffffff;
+      font-family: bodyFont;
+      font-weight: bold;
+  }
+  .info_bg {
+      position: absolute;
+      top: 149px;
+      left: 235px;
+      z-index: 4;
+      width: 163px;
+      height: 59px;
+      border-bottom-right-radius: 10px;
+      background-color: #1ab1ed;
+  }
+  .location {
+      position: absolute;
+      top: 128px;
+      left: 63px;
+      z-index: 8;
+      width: 108px;
+      min-height: 59px;
+      font-size: 1.313em;
+      font-weight: 400;
+      line-height: 1.38;
+      text-transform: uppercase;
+      color: rgb(255, 255, 255);
+      font-family: headerFont;
+  }
+  .temperature {
+      position: absolute;
+      top: 38px;
+      left: 72px;
+      z-index: 7;
+      width: 109px;
+      min-height: 28px;
+      font-size: 4.25em;
+      font-weight: 700;
+      line-height: 1.38;
+      color: rgb(255, 255, 255);
+      font-family: bodyFont;
+  }
+  .windicon {
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: 43.1173312883%;
+      z-index: 1;
+      width: 50px;
+      height: auto;
+      overflow: hidden;
+  }
+  .windspeed {
+      position: absolute;
+      top: 9px;
+      left: 109px;
+      width: 50px;
+      min-height: 29px;
+      font-size: 1em;
+      line-height: 1.38;
+      text-align: center;
+      color: #ffffff;
+  }
+  .windspeed p {
+      margin-bottom: -.2em;
+      font-family: bodyFont;
+      font-weight: bold;
+  }

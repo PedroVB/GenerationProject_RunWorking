@@ -5,7 +5,8 @@
 		$newData["name"] = $_POST['name'];
 		$newData["route"] = $_POST['route'];
 		$newData["key"] = $_POST['key'];
-
+		$newData["time"] = $_POST['time'];
+		$newData["distance"] = $_POST['distance'];
 		//decodifica el json y lo pasamos a un array php
 		$tempArray = json_decode(file_get_contents($file));
 

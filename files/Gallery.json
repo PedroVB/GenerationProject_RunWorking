@@ -1,27 +1,27 @@
 [
 	{
-		"url": "./img/galleryImage/img1.jpg",
+		"url": "./img/galleryImage/full/4.jpg",
 		"key": "53455734P"
 
 	},
 	{
-		"url": "./img/galleryImage/img2.jpg",
+		"url": "./img/galleryImage/full/6.jpg",
 		"key": "12345678U"
 
 	},
 	{
-		"url": "./img/galleryImage/img3.jpg",
+		"url": "./img/galleryImage/full/3.jpg",
 		"key": "53455734P"
 
 	},
 	{
 		"url": "./img/galleryImage/full/1.jpg",
-		"key": "12345678P"
+		"key": "00000000G"
 
 	},
 	{
-		"url": "./img/galleryImage/img5.jpg",
-		"key": "53455734P"
+		"url": "./img/galleryImage/full/5.jpg",
+		"key": "00000000G"
 
 	}
 ]

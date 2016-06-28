@@ -66,11 +66,13 @@ function indexController() {
 
 function imageController() {
     styleUser();
-
 };
 
 
-function comentController() {};
+function comentController() {
+    styleIndex();
+
+};
 
 function mapsController() {
     showListMaps();
@@ -122,12 +124,18 @@ function mapsUserController(){
     styleUser();
     styleUmaps();
     mapsLoad();
-        $(".routeSaved").hide();
+    $(".routeSaved").hide();
+    $(".routeInUse").hide();
+    $(".coinsWins").hide();
 
 };
 
 function storeController() {
-    storeProducts()
+    storeProducts();
+    styleIndex();
+    $(".msgBuy").hide();
+    $(".msgDirection").hide();
+
 }
 
 app.controller("indexController", indexController)
@@ -144,30 +152,6 @@ app.controller("tempController", tempController)
 app.controller("registerController", registerController)
 
 app.controller("storeController", storeController)
-
-
-/*var Product = function(container, img, coin, msg, description) {
-    this.container = container;
-    this.img = img;
-    this.coin = coin;
-    this.msg = msg;
-    this.description = description;
-}
-
-app.controller("storeController", function($scope) {
-    $scope.products = [
-    product1 = new Product("cajaSoporte", "soporte", "moneda30", "msgSoporte", "Soporte para móviles"),
-    product2 = new Product("cajaCascos", "cascos", "moneda", "msgCascos", "Cascos Running"),
-    product3 = new Product("cajaCamiseta", "camiseta", "moneda20", "msgCamiseta", "Camiseta Térmica"),
-    product4 = new Product("cajaPulso", "pulsometro", "moneda20", "msgPulso", "Pulsómetro"),
-    product5 = new Product("cajaReloj", "reloj", "moneda30", "msgReloj", "Reloj Running"),
-    product6 = new Product("cajaGuantes", "guantes", "moneda", "msgGuantes", "Guantes"),
-    product7 = new Product("cajaCalcetines", "calcetines", "moneda", "msgCalcetines", "Calcetines Térmicos"),
-    product8 = new Product("cajaRino", "riñonera", "moneda20", "msgRino", "Riñonera Running"),
-    product9 = new Product("cajaZapas", "zapas", "moneda30", "msgZapas", "Zapatillas Running")
-    ]
-    storeProducts();
-});*/
 
 
 var url = './files/races.jsonp';
@@ -236,8 +220,8 @@ function openUser(){
         '<span class="glyphicon glyphicon-user"></span>&nbsp' + 
         actualUser.user +
         '</a></li>' +
-        '<li><a href="/store"><span class="glyphicon glyphicon-piggy-bank"></span>' + "&nbsp&nbsp" + actualUser.coins  +
-        '<li><a href="/" id="closeSession" class="login"><span class="glyphicon glyphicon-log-in">' +
+        '<li><a href="/store"><span class="glyphicon glyphicon-piggy-bank"></span>' + "&nbsp&nbsp<span class='sessionCoins'>" + actualUser.coins  +
+        '</span><li><a href="/" id="closeSession" class="login"><span class="glyphicon glyphicon-log-in">' +
         '</span>&nbsp Cerrar Sesión</a></li>');
 }
 
@@ -328,4 +312,78 @@ function styleIndex(){
 
 function styleUmaps(){
     $('.nopadding').attr('style', 'padding-left: 0px !important');
+}
+
+$(document).on("click", ".coinValue", srcValue);
+
+var coinValue;
+
+function srcValue(){
+    var sessionUser = JSON.parse(window.sessionStorage.getItem('user'))
+    if(sessionUser !== null){
+        coinValue = $(this).attr("src");
+        coinValue = parseInt(coinValue.substr(10, 2));
+
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById("coinValue");
+
+        modal.style.display = "block";
+
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            modal.style.display = "none";
+            $(".noCoins").css("visibility", "hidden");
+
+
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                $(".noCoins").css("visibility", "hidden");
+
+            }      
+
+        }
+
+
+    };
+};
+
+$(document).on("click", "#btnShop", confirmBuy);
+
+function confirmBuy(){
+    var sessionUser = JSON.parse(window.sessionStorage.getItem('user'));
+    var dni = sessionUser.dni;
+    var coins = parseInt(sessionUser.coins);   
+    var pru = $("#directionBuy").val();
+    if($("#directionBuy").val() == ""){
+        $(".msgDirection").show( "blind", {direction: "up"}, 1000 );
+        setTimeout(function() {
+            $(".msgDirection").fadeOut(1500);
+        },3000);
+    } else if(coins < coinValue){
+        $(".noCoins").css("visibility", "visible");
+
+    } else{
+        coins = coins - coinValue;
+        $.ajax({
+            type: "POST",
+            url: "./insert.php",
+            data: {"action":"updateCoins", "file": "./files/User.json", "dni": dni, "coins": coins},
+            success: function(msg){
+                sessionUser.coins = coins;
+                window.sessionStorage.setItem('user', JSON.stringify(sessionUser));
+                $(".sessionCoins").text(coins);
+                $(".msgBuy").show( "blind", {direction: "up"}, 1000 );
+                setTimeout(function() {
+                    $(".msgBuy").fadeOut(1500);
+                    var modal = document.getElementById('myModal');
+                    modal.style.display = "none";
+                },3000);
+            },
+            error: function(err){
+                alert(err);
+            }
+        });
+    }
 }

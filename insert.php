@@ -13,6 +13,10 @@ switch ($_POST['action']) {
 	deleteJSON();
 	break;
 
+	case 'updateCoins':
+	updateCoins();
+	break;
+
 	default:
 	break;
 }
@@ -77,6 +81,25 @@ function deleteJSON(){
 	$jsonData = json_encode($tempArray);
 
 		//reemplaza los datos anteriores del archivo json con los nuevos datos
+	file_put_contents($file, $jsonData);
+}
+
+function updateCoins(){
+	$file = $_POST['file'];
+
+	//decodifica el json y lo pasamos a un array php
+	$tempArray = json_decode(file_get_contents($file));
+
+	foreach ($tempArray as $user){
+		if ($user->dni == $_POST["dni"]){
+			//user es la posicion (el objeto entero) del array en la que estoy
+			$user->coins = $_POST["coins"];
+		}
+	}
+
+	$jsonData = json_encode($tempArray);
+
+	//reemplaza los datos anteriores del archivo json con los nuevos datos
 	file_put_contents($file, $jsonData);
 }
 ?>
