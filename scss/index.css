@@ -154,7 +154,7 @@
   padding-right: 0px !important;
   padding-left: 0px !important; }
 
-.changesUser, .outUser, .invalidData, .routeSaved, .routeInUse, .coinsWins, .msgBuy, .msgDirection {
+.changesUser, .outUser, .invalidData, .routeInUse, .msgBuy, .msgDirection {
   width: 100%;
   background: #88AECB;
   text-align: center;
@@ -165,6 +165,17 @@
   font-family: bodyFont;
   margin-top: 50px; }
 
+.routeSaved, .coinsWins{
+   width: 100%;
+  background: #88AECB;
+  text-align: center;
+  height: 40px;
+  display: table;
+  border: 2px solid #0078c2;
+  font-weight: bold;
+  font-family: bodyFont;
+  margin-top: 15px; 
+}
 .incorrectUser {
   width: 100%;
   background: #88AECB;
@@ -189,7 +200,7 @@
 .form-group {
   margin-bottom: 10px !important; }
 
-.incorrectUser > *, .changesUser > *, .invalidData > *, .routeSaved > *, .routeInUse > *, .coinsWins > *, .msgBuy > *, .msgDirection > * {
+.incorrectUser > *, .changesUser > *, .invalidData > *, .routeSaved > *, .routeInUse > *, .coinsWins > *, .msgBuy > *, .msgDirection > *, .prox > * {
   display: table-cell;
   vertical-align: middle; }
 
@@ -331,7 +342,7 @@
   text-align: center; }
 
 @media screen and (max-width: 992px) {
-  .sloganSite {
+  .sloganSite, #ca-container {
     display: none; } }
 .navbar-inverse {
   background-color: #0078c2;

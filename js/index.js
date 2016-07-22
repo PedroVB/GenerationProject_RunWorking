@@ -55,6 +55,10 @@ function setConfig($locationProvider, $routeProvider) {
         controller: 'storeController',
         templateUrl: './views/store.html'
     })
+    .when('/videoUser', {
+        controller: 'videoUserController',
+        templateUrl: './views/videoUser.html'
+    })
 
 };
 
@@ -66,6 +70,11 @@ function indexController() {
 
 function imageController() {
     styleUser();
+};
+
+function videoUserController() {
+    styleUser();
+
 };
 
 
@@ -150,7 +159,7 @@ app.controller("mapsUserController", mapsUserController)
 app.controller("mapsController", mapsController)
 app.controller("tempController", tempController)
 app.controller("registerController", registerController)
-
+app.controller("videoUserController", videoUserController)
 app.controller("storeController", storeController)
 
 
@@ -342,10 +351,7 @@ function srcValue(){
                 $(".noCoins").css("visibility", "hidden");
 
             }      
-
         }
-
-
     };
 };
 
